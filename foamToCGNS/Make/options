@@ -1,0 +1,22 @@
+c++FLAGS+= -DOPENFOAM_VERSION=150 -DEXPORT_CYCLIC_BOUNDARIES
+
+LIBCGNSOOHOME=$(PWD)/../../../../../thirdParty/libcgnsoo_3.0/platforms/$(WM_OPTIONS)
+LIBCGNSOO=$(PWD)/../../../../../thirdParty/libcgnsoo_3.0
+
+LINKEXE+=-Wl,-rpath=$(LIBCGNSOOHOME)/lib
+
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/transportModels \
+    -I$(LIB_SRC)/transportModels/incompressible/lnInclude
+
+EXE_INC += -I$(LIBCGNSOOHOME)/include
+EXE_INC += -I$(LIBCGNSOO)/src
+
+EXE_LIBS = \
+    -lOpenFOAM \
+    -lfiniteVolume \
+    -lincompressibleTransportModels
+
+EXE_LIBS += -L$(LIBCGNSOOHOME)/lib -lcgnsoo3 -lcgns

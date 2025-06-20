@@ -1,0 +1,19 @@
+#!/bin/bash
+set -x
+
+LIBCGNSOOHOME=`pwd`/libcgnsoo_3.0
+if [ -e $LIBCGNSOOHOME -a ! -r $LIBCGNSOOHOME/platforms/$WM_OPTIONS/lib/libcgnsoo3.a ]
+then
+    pushd $LIBCGNSOOHOME
+
+    ./bootstrap
+    ./configure --prefix=$LIBCGNSOOHOME/platforms/$WM_OPTIONS --with-CGNSLIBHOME=/usr
+
+    CORES=${WM_NCOMPPROCS:-1}
+
+    #make -j $CORES
+    make -j2
+    make install
+
+    popd
+fi

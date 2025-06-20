@@ -1,0 +1,8 @@
+AC_INIT([libcgnsoo], [3.0])
+AM_INIT_AUTOMAKE([foreign])
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_MACRO_DIRS([m4])
+AC_PROG_CXX
+LT_INIT
+AC_CONFIG_FILES([Makefile src/Makefile])
+AC_OUTPUT

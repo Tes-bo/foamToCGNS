@@ -1,0 +1,4 @@
+foamToCGNS.C
+logFile.C
+
+EXE = $(FOAM_USER_APPBIN)/foamToCGNS
