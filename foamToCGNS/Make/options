@@ -1,7 +1,6 @@
-c++FLAGS+= -DOPENFOAM_VERSION=150 -DEXPORT_CYCLIC_BOUNDARIES
 
-LIBCGNSOOHOME=$(PWD)/../../../../../thirdParty/libcgnsoo_3.0/platforms/$(WM_OPTIONS)
-LIBCGNSOO=$(PWD)/../../../../../thirdParty/libcgnsoo_3.0
+LIBCGNSOOHOME=$(PWD)/../thirdParty/libcgnsoo_3.0/platforms/$(WM_OPTIONS)
+LIBCGNSOO=$(PWD)/../thirdParty/libcgnsoo_3.0
 
 LINKEXE+=-Wl,-rpath=$(LIBCGNSOOHOME)/lib
 
